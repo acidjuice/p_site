@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Project
+from .models import Project, Artwork
 
 def home(request):
     projects = Project.objects.all()
@@ -8,3 +8,7 @@ def home(request):
 
 def about(request):
     return render(request, 'portfolio/about.html')
+
+def artwork(request):
+    artworks = Artwork.objects.all()
+    return render(request, 'portfolio/artworks.html', {'artworks':artworks})

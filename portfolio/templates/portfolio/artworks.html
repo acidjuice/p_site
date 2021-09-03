@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<h1>Hi. <br> THIS IS MY ARTWORKS</h1>
+
 </body>
 </html>
+
+{% for artwork in artworks %}
+<h2>{{ artwork.title }}</h2>
+<p>{{ artwork.description }}</p>
+<img src="{{ artwork.image.url }}">
+{% if artwork.url %}
+<a href="{{ artwork.url }}">Link</a>
+<br>
+<br>
+<br>
+{% endif %}
+{% endfor %}
