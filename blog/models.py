@@ -5,3 +5,6 @@ class Blog(models.Model):
     text = models.TextField()
     url = models.URLField(blank=True)
     date = models.DateField()
+
+    def __str__(self): #show NAME in Admin page instead of table ID
+        return self.title

@@ -10,5 +10,5 @@ def about(request):
     return render(request, 'portfolio/about.html')
 
 def artwork(request):
-    artworks = Artwork.objects.all()
+    artworks = Artwork.objects.order_by('-id')
     return render(request, 'portfolio/artworks.html', {'artworks':artworks})
