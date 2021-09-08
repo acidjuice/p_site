@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@mx#l&3w8+2be!8_(^4^g0zwgk!hs1bb23#j%u^37=le46wa9g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['acidjuice.pythonanywhere.com']
 
@@ -128,3 +128,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like no local file found. You must be on production")
