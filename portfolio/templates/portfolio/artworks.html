@@ -1,8 +1,31 @@
 {% extends 'portfolio/base.html' %}
 {% block content %}
 
-<h1>Hi. <br> THIS IS MY ARTWORKS</h1>
+<h2 class="mt-5">Portfolio</h2>
+(R-click->Show image in new tab) for High Resolution
+<br>
+<hr>
+<div class="row">
+  {% for artwork in artworks %}
+  <div class="col-lg-4 col-md-6">
 
+    {% if artwork.url %}
+    <a href="{{ artwork.url }}">
+      <img src="{{ artwork.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
+
+    <img src="{{ artwork.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3>{{ artwork.title }}</h3>
+    <p>{{ artwork.description }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+<!--
+<h1>Hi. <br> THIS IS MY ARTWORKS</h1>
 {% for artwork in artworks %}
 <h2>{{ artwork.title }}</h2>
 <p>{{ artwork.description }}</p>
@@ -14,5 +37,6 @@
 <br>
 {% endif %}
 {% endfor %}
+-->
 
 {% endblock %}
